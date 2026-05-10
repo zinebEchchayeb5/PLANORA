@@ -8,6 +8,7 @@ import Planning from "./Planning";
 import Stock from "./Stock";
 import Comptabilite from "./Comptabilite";
 import Fichiers from "./Fichiers";
+import ServiceFait from "./ServiceFait";
 import VoiceChatbot from "./VoiceChatbot";
 
 const API = "http://127.0.0.1:8000";
@@ -34,6 +35,7 @@ export default function Dashboard({ user, onLogout, goPlans }) {
     { id:"clients",      label:"Clients",           icon:"👥" },
     { id:"equipe",       label:"Équipe & Tâches",   icon:"👨‍💼" },
     { id:"factures",     label:"Facturation",       icon:"💰" },
+    { id:"servicefait",  label:"Service Fait",      icon:"✅" },
     { id:"stock",        label:"Stock",             icon:"📦" },
     { id:"comptabilite", label:"Comptabilité",      icon:"⚙️" },
     { id:"fichiers",     label:"Fichiers",          icon:"📁" },
@@ -144,6 +146,7 @@ export default function Dashboard({ user, onLogout, goPlans }) {
                   { label:"Générer un plan",  color:"#3B82F6", action:goPlans },
                   { label:"Ajouter client",   color:"#10B981", action:() => setActiveMenu("clients") },
                   { label:"Nouvelle facture", color:"#F59E0B", action:() => setActiveMenu("factures") },
+                  { label:"Attestation",      color:"#06B6D4", action:() => setActiveMenu("servicefait") },
                   { label:"Stock",            color:"#8B5CF6", action:() => setActiveMenu("stock") },
                   { label:"Fichiers",         color:"#06B6D4", action:() => setActiveMenu("fichiers") },
                   { label:"Comptabilité",     color:"#64748b", action:() => setActiveMenu("comptabilite") },
@@ -187,6 +190,7 @@ export default function Dashboard({ user, onLogout, goPlans }) {
         {activeMenu === "equipe"       && <Equipe />}
         {activeMenu === "factures"     && <Factures />}
         {activeMenu === "planning"     && <Planning />}
+        {activeMenu === "servicefait"  && <ServiceFait />}
         {activeMenu === "stock"        && <Stock />}
         {activeMenu === "comptabilite" && <Comptabilite />}
         {activeMenu === "fichiers"     && <Fichiers />}
